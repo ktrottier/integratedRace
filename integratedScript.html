@@ -26,7 +26,7 @@
       <input id="hareCheck" type="checkbox">
       <label for="hareCheck">Hare</label>
 
-      <button id="start" onclick="startRace();">START</button>
+      <button id="start" onclick="startTurn(rabbit,turtle)">START</button>
       <button id="move" onclick="moveRace();">"RUN!!!"</button>
       <br/ >
 
@@ -45,35 +45,72 @@
     </div>
 
     <script>
-      var finishLine = 100
+      function Animal(name, speed, focus){
+        this.name = name;
+        this.speed = speed;
+        this.focus = focus;
+        this.position = 0;
+        this.run = function() {
+          if(Math.random() * 10 < this.focus) {
+            this.position = this.position + this.speed;
+            if(this.position > raceDist){
+              this.position = raceDist;
+            }
+          return this.position;
+          }
+          else {
+            return this.position;
+          }
+        }
+      }
+        //Commented out for now. Will add into website later.
+        /*his.distDiff = function(raceDistance,totalDistanceCovered) {
+          var distanceDifference = raceDistance - totalDistanceCovered;
+          if(distanceDifference < 0) {
+            distanceDifference = 0;
+          }
+          return distanceDifference;
+        }
+        this.stringFeedback = function() {
+          alert(this.name + " has run " + this.position + " feet. He has " + this.distDiff(raceDist,this.position) + " feet to go!");
+        }
+        this.stringWin = function() {
+          alert(this.name + " has won!");
+        }*/
 
-      function contestantCheck(); {
+      var raceDist = 10;
+      var rabbit = new Animal("Hare",4,2);
+      var turtle = new Animal("Tortoise",1,10);
+
+      function contestantCheck() {
         var tortoiseCheck = document.getElementById('tortoiseCheck');
         var hareCheck = document.getElementById('hareCheck');
         //add conditional for players contestant choice
-
-
-      function startRace(); {
-        var start = document.getElementById('start');
-        //add function to start the race
       }
 
-      function moveRace(); {
+      function startTurn(player1,player2) {
+        player1.run();
+        var x = document.getElementById("tortoiseOutput").setAttribute("value",player1.position);
+        x = player1.position;
+        player2.run();
+        var y = document.getElementById("hareOutput").setAttribute("value",player2.position);
+        y = player2.position;
+      }
+
+      function moveRace() {
         var move = document.getElementById('move');
         //add function to continue the race
       }
 
-      function raceResult(); {
+      function raceResult() {
         var tortoiseOutput = document.getElementById('tortoiseOutput');
         var hareOutput = document.getElementById('hareOutput');
         var winnerOutput = document.getElementById('winnerOutput');
-        //if ((finishline - contestant1.distance <= finishLine) ||
-          //(finishLine - contestant2.distance <= finishLine) {
+        //if ((raceDist - contestant1.distance <= raceDist) ||
+          //(raceDist - contestant2.distance <= raceDist) {
           //code to keep clicking RUN button until there's a winner}
         //add output function when contestant hits 100
       }
-      }
-
 
     </script>
 </body>
