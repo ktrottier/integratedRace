@@ -26,7 +26,7 @@
       <input id="hareCheck" type="checkbox">
       <label for="hareCheck">Hare</label>
 
-      <button id="start" onclick="startTurn(rabbit,turtle)">START</button>
+      <button id="start" onclick="startTurn(turtle,rabbit)">START</button>
       <button id="move" onclick="moveRace();">"RUN!!!"</button>
       <br/ >
 
@@ -39,7 +39,8 @@
         <br/ >
         <input id="hareOutput" type="text" size="20" />-Hare
         <br/ >
-        <br/         <input id="winnerOutput" type="text" size="50" />
+        <br/ >
+        <input id="winnerOutput" type="text" size="50" />
       </form>
     </div>
 
@@ -77,9 +78,9 @@
           alert(this.name + " has won!");
         }*/
 
-      var raceDist = 10;
-      var rabbit = new Animal("Hare",4,2);
-      var turtle = new Animal("Tortoise",1,10);
+      var raceDist = 100;
+      var rabbit = new Animal("Hare",40,2);
+      var turtle = new Animal("Tortoise",10,10);
 
       function contestantCheck() {
         var tortoiseCheck = document.getElementById('tortoiseCheck');
