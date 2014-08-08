@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>The Tortoise and the Hare Betting Game</title>
+</head>
+<body>
+  <header>
+    <div align="center">
+      <h1>The Tortoise and the Hare Betting Game</h1>
+      <h2>You have <font color="green">$100</font> to bet on the race.
+      Which contestant will you bet on?</h2>
+    </div>
+  </header>
+    <br/ >
+    <div align="left">
+      <p><font size="4">Step 1) Check which box you are betting on
+      and click the START button to begin the race!</font><p>
+      <p><font size="4">Step 2) After you click the START button,
+      help your contestant win by clicking the "RUN!!!" button over and over
+      until someone wins the race.  Good Luck!</font></p>
+      <br/ >
+    </div>
+    <div>
+      <p><font size="5">Contestants:</font></p>
+      <input id="tortoiseCheck" type="checkbox">
+      <label for="tortoiseCheck">Tortoise</label>
+      <input id="hareCheck" type="checkbox">
+      <label for="hareCheck">Hare</label>
+
+      <button id="start" onclick="startRace();">START</button>
+      <button id="move" onclick="moveRace();">"RUN!!!"</button>
+      <br/ >
+
+      <p>Watch the contestants' progress in the boxes below. Whoever reaches 100 first wins!</p>
+      <br/ >
+
+      <form>
+        <input id="tortoiseOutput" type="text" size="20" />-Tortoise
+        <br/ >
+        <br/ >
+        <input id="hareOutput" type="text" size="20" />-Hare
+        <br/ >
+        <br/ >
+        <input id="winnerOutput" type="text" size="50" />
+      </form>
+    </div>
+
+    <script>
+      var finishLine = 100
+
+      function contestantCheck(); {
+        var tortoiseCheck = document.getElementById('tortoiseCheck');
+        var hareCheck = document.getElementById('hareCheck');
+        //add conditional for players contestant choice
+
+
+      function startRace(); {
+        var start = document.getElementById('start');
+        //add function to start the race
+      }
+
+      function moveRace(); {
+        var move = document.getElementById('move');
+        //add function to continue the race
+      }
+
+      function raceResult(); {
+        var tortoiseOutput = document.getElementById('tortoiseOutput');
+        var hareOutput = document.getElementById('hareOutput');
+        var winnerOutput = document.getElementById('winnerOutput');
+        //if ((finishline - contestant1.distance <= finishLine) ||
+          //(finishLine - contestant2.distance <= finishLine) {
+          //code to keep clicking RUN button until there's a winner}
+        //add output function when contestant hits 100
+      }
+      }
+
+
+    </script>
+</body>
+</html>
