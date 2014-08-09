@@ -46,7 +46,6 @@
         <input id="userMoneyOutput" type="text" size="50" value="You now have $0." />
       </form>
     </div>
-
     <script>
       function Animal(name, speed, focus){
         this.name = name;
@@ -70,20 +69,6 @@
           this.picked = true;
         }
       }
-        //Commented out for now. Will add into website later.
-        /*his.distDiff = function(raceDistance,totalDistanceCovered) {
-          var distanceDifference = raceDistance - totalDistanceCovered;
-          if(distanceDifference < 0) {
-            distanceDifference = 0;
-          }
-          return distanceDifference;
-        }
-        this.stringFeedback = function() {
-          alert(this.name + " has run " + this.position + " feet. He has " + this.distDiff(raceDist,this.position) + " feet to go!");
-        }
-        this.stringWin = function() {
-          alert(this.name + " has won!");
-        }*/
 
       var raceDist = 100;
       var turtle = new Animal("Tortoise",10,10);
@@ -108,36 +93,24 @@
           var elmoney = document.getElementById("userMoneyOutput").setAttribute("value","You now have $" + money + ".");
         }
       }
-      function contestantCheck() {
-        var tortoiseCheck = document.getElementById('tortoiseCheck');
-        var hareCheck = document.getElementById('hareCheck');
-        //add conditional for players contestant choice
-      }
 
       function startTurn(player1,player2) {
-        player1.run();
-        var x = document.getElementById("tortoiseOutput").setAttribute("value",player1.position);
-        //x = player1.position;
-        player2.run();
-        var y = document.getElementById("hareOutput").setAttribute("value",player2.position);
-        //y = player2.position;
-      }
-
-      function moveRace() {
-        var move = document.getElementById('move');
-        //add function to continue the race
+        if(player1.picked === true || player2.picked === true) {
+          player1.run();
+          document.getElementById("tortoiseOutput").setAttribute("value",player1.position);
+          player2.run();
+          document.getElementById("hareOutput").setAttribute("value",player2.position);
+        }
+        else {
+          document.getElementById("userMoneyOutput").setAttribute("value","You must pick an animal to win.");
+        }
       }
 
       function raceResult() {
         var tortoiseOutput = document.getElementById('tortoiseOutput');
         var hareOutput = document.getElementById('hareOutput');
         var winnerOutput = document.getElementById('winnerOutput');
-        //if ((raceDist - contestant1.distance <= raceDist) ||
-          //(raceDist - contestant2.distance <= raceDist) {
-          //code to keep clicking RUN button until there's a winner}
-        //add output function when contestant hits 100
       }
-
     </script>
 </body>
 </html>
