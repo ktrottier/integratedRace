@@ -26,8 +26,7 @@
       <input id="hareCheck" type="radio" onclick="rabbit.userAnimalPick();">
       <label for="hareCheck">Hare</label>
 
-      <button id="start" onclick="startTurn(turtle,rabbit);gamble(turtle,rabbit);">START</button>
-      <button id="move" onclick="moveRace();">"RUN!!!"</button>
+      <button id="start" onclick="startTurn(turtle,rabbit);gamble(turtle,rabbit);" style="width:100px;height:30px;font-size:20px;">START</button>
       <br/ >
 
       <p>Watch the contestants' progress in the boxes below. Whoever reaches 100 first wins!</p>
@@ -100,6 +99,8 @@
           document.getElementById("tortoiseOutput").setAttribute("value",player1.position);
           player2.run();
           document.getElementById("hareOutput").setAttribute("value",player2.position);
+          document.getElementById('start').innerHTML="RUN!!!";
+          document.getElementById('start').target="_blank";
         }
         else {
           document.getElementById("userMoneyOutput").setAttribute("value","You must pick an animal to win.");
