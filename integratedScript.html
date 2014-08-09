@@ -21,12 +21,12 @@
     </div>
     <div>
       <p><font size="5">Contestants:</font></p>
-      <input id="tortoiseCheck" type="checkbox">
+      <input id="tortoiseCheck" type="radio" onclick="turtle.userAnimalPick();">
       <label for="tortoiseCheck">Tortoise</label>
-      <input id="hareCheck" type="checkbox">
+      <input id="hareCheck" type="radio" onclick="rabbit.userAnimalPick();">
       <label for="hareCheck">Hare</label>
 
-      <button id="start" onclick="startTurn(turtle,rabbit)">START</button>
+      <button id="start" onclick="startTurn(turtle,rabbit);gamble(turtle,rabbit);">START</button>
       <button id="move" onclick="moveRace();">"RUN!!!"</button>
       <br/ >
 
@@ -41,6 +41,9 @@
         <br/ >
         <br/ >
         <input id="winnerOutput" type="text" size="50" />
+        <br/ >
+        <br/ >
+        <input id="userMoneyOutput" type="text" size="50" value="You now have $0." />
       </form>
     </div>
 
@@ -50,6 +53,7 @@
         this.speed = speed;
         this.focus = focus;
         this.position = 0;
+        this.picked = false;
         this.run = function() {
           if(Math.random() * 10 < this.focus) {
             this.position = this.position + this.speed;
@@ -61,6 +65,9 @@
           else {
             return this.position;
           }
+        }
+        this.userAnimalPick = function() {
+          this.picked = true;
         }
       }
         //Commented out for now. Will add into website later.
@@ -79,9 +86,28 @@
         }*/
 
       var raceDist = 100;
-      var rabbit = new Animal("Hare",40,2);
       var turtle = new Animal("Tortoise",10,10);
+      var rabbit = new Animal("Hare",40,2);
+      var money = 0;
 
+      function gamble(player1,player2) {
+        if (player1.picked === true && player1.position === raceDist && player1.position > player2.position) {
+          money =+ money + 100;
+          var elmoney = document.getElementById("userMoneyOutput").setAttribute("value","You now have $" + money + ".");
+        }
+        else if (player2.picked === true && player2.position ===raceDist && player2.position > player1.position) {
+          money =+ money + 100;
+          var elmoney = document.getElementById("userMoneyOutput").setAttribute("value","You now have $" + money + ".");
+        }
+        else if (player2.picked === true && player1.position ===raceDist && player1.position > player2.position) {
+          money =+ money - 100;
+          var elmoney = document.getElementById("userMoneyOutput").setAttribute("value","You now have $" + money + ".");
+        }
+        else if (player1.picked === true && player2.position ===raceDist && player2.position > player1.position) {
+          money =+ money - 100;
+          var elmoney = document.getElementById("userMoneyOutput").setAttribute("value","You now have $" + money + ".");
+        }
+      }
       function contestantCheck() {
         var tortoiseCheck = document.getElementById('tortoiseCheck');
         var hareCheck = document.getElementById('hareCheck');
@@ -91,10 +117,10 @@
       function startTurn(player1,player2) {
         player1.run();
         var x = document.getElementById("tortoiseOutput").setAttribute("value",player1.position);
-        x = player1.position;
+        //x = player1.position;
         player2.run();
         var y = document.getElementById("hareOutput").setAttribute("value",player2.position);
-        y = player2.position;
+        //y = player2.position;
       }
 
       function moveRace() {
