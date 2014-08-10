@@ -21,9 +21,9 @@
     </div>
     <div>
       <p><font size="5">Contestants:</font></p>
-      <input id="tortoiseCheck" type="radio" onclick="turtle.userAnimalPick();">
+      <input id="tortoiseCheck" type="radio" name="selectAnimal" onclick="turtle.userAnimalPick();">
       <label for="tortoiseCheck">Tortoise</label>
-      <input id="hareCheck" type="radio" onclick="rabbit.userAnimalPick();">
+      <input id="hareCheck" type="radio" name="selectAnimal" onclick="rabbit.userAnimalPick();">
       <label for="hareCheck">Hare</label>
 
       <button id="start" onclick="startTurn(turtle,rabbit);gamble(turtle,rabbit);" style="width:100px;height:30px;font-size:20px;">START</button>
@@ -114,3 +114,4 @@
     </script>
 </body>
 </html>
+
